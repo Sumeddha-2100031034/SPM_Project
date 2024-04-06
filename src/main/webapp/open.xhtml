@@ -1,0 +1,812 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+	<head>
+	
+	<style>
+	
+
+.header{
+height: 700px;
+    width: 100%;    
+background: black;
+overflow: hidden;
+}
+
+/* Home section */
+
+.home {
+    width: 100%;
+    
+}
+.img{
+	object-fit: cover;
+   opacity: 0.7;
+   width: 100%;
+}
+.text{
+	position:absolute;
+	top: 50%;
+	left: 41%;
+	font-size: 50px;
+	font-family: cursive;
+	color: black;
+}
+
+
+@-webkit-keyframes inM {
+    50% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(45deg);
+    }
+}
+
+@keyframes inM {
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@-webkit-keyframes outM {
+    50% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(45deg);
+    }
+}
+
+@keyframes outM {
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@-webkit-keyframes inT {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@keyframes inT {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes outT {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@keyframes outT {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes inBtm {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+@keyframes inBtm {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes outBtm {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+@keyframes outBtm {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+.affix {
+    padding: 0;
+    background-color: #111;
+}
+
+
+
+.myH2 {
+text-align:left;
+margin-left:230px;
+	font-size: 2.5rem;
+}
+.myH3{
+margin-left:230px;
+font-size:1.5rem;
+}
+.myP {
+	text-align: justify;
+	padding-left:15%;
+	padding-right:15%;
+	font-size: 20px;
+}
+@media all and (max-width:500px){
+	.myP {
+		padding:2%;
+	}
+}
+	
+	</style>
+	
+	<style>
+	/* Googlefont Poppins CDN Link */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  min-height: 100vh;
+}
+nav{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  height: 70px;
+  background: black;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  z-index: 99;
+}
+nav .navbar{
+  height: 100%;
+  max-width: 1450px;
+  width: 120%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  /* background: red; */
+  padding: 0 50px;
+}
+.navbar .logo a{
+  font-size: 30px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+nav .navbar .nav-links{
+  line-height: 70px;
+  height: 100%;
+}
+nav .navbar .links{
+  display: flex;
+}
+nav .navbar .links li{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0 10px;
+}
+nav .navbar .links li a{
+  height: 100%;
+  text-decoration: none;
+  white-space: nowrap;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+}
+.links li:hover .htmlcss-arrow,
+.links li:hover .js-arrow{
+  transform: rotate(180deg);
+  }
+
+nav .navbar .links li .arrow{
+  /* background: red; */
+  height: 100%;
+  width: 22px;
+  line-height: 70px;
+  text-align: center;
+  display: inline-block;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+nav .navbar .links li .sub-menu{
+  position: absolute;
+  top: 50px;
+  left: 0;
+  line-height: 40px;
+  background: black;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 4px 4px;
+  display: none;
+  z-index: 2;
+}
+nav .navbar .links li:hover .htmlCss-sub-menu,
+nav .navbar .links li:hover .js-sub-menu{
+  display: block;
+}
+.navbar .links li .sub-menu li{
+  padding: 0 22px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.navbar .links li .sub-menu a{
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
+.navbar .links li .sub-menu .more-arrow{
+  line-height: 40px;
+}
+.navbar .links li .htmlCss-more-sub-menu{
+  /* line-height: 40px; */
+}
+.navbar .links li .sub-menu .more-sub-menu{
+  position: absolute;
+  top: 0;
+  left: 100%;
+  border-radius: 0 4px 4px 4px;
+  z-index: 1;
+  display: none;
+}
+.links li .sub-menu .more:hover .more-sub-menu{
+  display: block;
+}
+.navbar .nav-links .sidebar-logo{
+  display: none;
+}
+.navbar .bx-menu{
+  display: none;
+}
+@media (max-width:920px) {
+  nav .navbar{
+    max-width: 100%;
+    padding: 0 25px;
+  }
+
+  nav .navbar .logo a{
+    font-size: 27px;
+  }
+  nav .navbar .links li{
+    padding: 0 10px;
+    white-space: nowrap;
+  }
+  nav .navbar .links li a{
+    font-size: 15px;
+  }
+}
+@media (max-width:800px){
+  nav{
+    /* position: relative; */
+  }
+  .navbar .bx-menu{
+    display: block;
+  }
+  nav .navbar .nav-links{
+    position: fixed;
+    top: 0;
+    left: -100%;
+    display: block;
+    max-width: 270px;
+    width: 100%;
+    background:  #3E8DA8;
+    line-height: 40px;
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease;
+    z-index: 1000;
+  }
+  .navbar .nav-links .sidebar-logo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .sidebar-logo .logo-name{
+    font-size: 25px;
+    color: #fff;
+  }
+    .sidebar-logo  i,
+    .navbar .bx-menu{
+      font-size: 25px;
+      color: #fff;
+    }
+  nav .navbar .links{
+    display: block;
+    margin-top: 20px;
+  }
+  nav .navbar .links li .arrow{
+    line-height: 40px;
+  }
+nav .navbar .links li{
+    display: block;
+  }
+nav .navbar .links li .sub-menu{
+  position: relative;
+  top: 0;
+  box-shadow: none;
+  display: none;
+}
+nav .navbar .links li .sub-menu li{
+  border-bottom: none;
+
+}
+.navbar .links li .sub-menu .more-sub-menu{
+  display: none;
+  position: relative;
+  left: 0;
+}
+.navbar .links li .sub-menu .more-sub-menu li{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.links li:hover .htmlcss-arrow,
+.links li:hover .js-arrow{
+  transform: rotate(0deg);
+  }
+  .navbar .links li .sub-menu .more-sub-menu{
+    display: none;
+  }
+  .navbar .links li .sub-menu .more span{
+    /* background: red; */
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+  }
+
+  .links li .sub-menu .more:hover .more-sub-menu{
+    display: none;
+  }
+  nav .navbar .links li:hover .htmlCss-sub-menu,
+  nav .navbar .links li:hover .js-sub-menu{
+    display: none;
+  }
+.navbar .nav-links.show1 .links .htmlCss-sub-menu,
+  .navbar .nav-links.show3 .links .js-sub-menu,
+  .navbar .nav-links.show2 .links .more .more-sub-menu{
+      display: block;
+    }
+    .navbar .nav-links.show1 .links .htmlcss-arrow,
+    .navbar .nav-links.show3 .links .js-arrow{
+        transform: rotate(180deg);
+}
+    .navbar .nav-links.show2 .links .more-arrow{
+      transform: rotate(90deg);
+    }
+}
+@media (max-width:370px){
+  nav .navbar .nav-links{
+  max-width: 100%;
+} 
+}
+
+
+
+
+
+@charset "UTF-8";
+body {
+  margin: 0;
+  font-family: calibri;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: #222;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0.4em 0;
+}
+
+.clearfix {
+  clear: both;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  background-color: white;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+  overflow: hidden;
+}
+header span {
+  margin-left: 20px;
+}
+header span img {
+  margin: 0 0px;
+  vertical-align: middle;
+}
+header span h1 {
+  display: inline-block;
+  font-size: 1.4em;
+  vertical-align: middle;
+}
+header ul {
+  display: inline-block;
+  margin: 0;
+}
+header ul li {
+  display: inline-block;
+  padding: 14px 10px;
+}
+
+main {
+  height: 100vh;
+  background-image: url("https://wallpaperaccess.com/full/1209458.jpg");
+  background-size: cover;
+  padding-top: 49vh;
+}
+main h1 {
+  color: #fff;
+  text-align: center;
+}
+
+section {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+  width: 96%;
+  margin: -20px auto;
+  padding: 20px 50px;
+  border-radius: 10px;
+}
+section img {
+  border-radius: 50px;
+  background-color: red;
+}
+section h2 {
+  color: #222;
+}
+section p {
+  color: #444;
+  width: 60%;
+  margin: 0 auto;
+}
+section p a {
+  color: royalblue;
+}
+
+article {
+  position: relative;
+  padding-top: 60px;
+  margin-bottom: 60px;
+}
+article figure {
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  background-color: #07ccff;
+}
+article .cards-holder {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 10%;
+}
+article .card {
+  height: 300px;
+  overflow: hidden;
+  float: left;
+  width: 36%;
+  margin: 0 7%;
+  background-color: #fff;
+  border-radius: 10px 70px 10px 10px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+article .card .scrollable {
+  padding: 20px 30px;
+  height: inherit;
+  width: 100%;
+  overflow: auto;
+}
+article .card h3 {
+  text-align: left;
+}
+article .card p {
+  text-align: left;
+  margin-left: 1em;
+}
+
+.section-group section {
+  text-align: left;
+  margin: 20px auto;
+}
+.section-group section h2 {
+  font-size: 2em;
+}
+.section-group section ul {
+  list-style: none;
+}
+.section-group section ul li {
+  line-height: 2em;
+}
+.section-group section ul li::before {
+  content: "▶ ";
+  margin-right: 3px;
+}
+
+footer {
+  background-color: #2d2f3b;
+  color: #fff;
+  padding: 10px 0;
+}
+footer ul {
+  list-style: none;
+}
+footer ul li {
+  line-height: 2.5em;
+}
+
+
+
+
+
+
+
+	</style>
+	
+	<script>
+	$('.navTrigger').click(function () {
+	    $(this).toggleClass('active');
+	    console.log("Clicked menu");
+	    $("#mainListDiv").toggleClass("show_list");
+	    $("#mainListDiv").fadeIn();
+
+	});
+	</script>
+	<script >
+	// search-box open close js code
+	let navbar = document.querySelector(".navbar");
+	let searchBox = document.querySelector(".search-box .bx-search");
+	// let searchBoxCancel = document.querySelector(".search-box .bx-x");
+
+	searchBox.addEventListener("click", ()=>{
+	  navbar.classList.toggle("showInput");
+	  if(navbar.classList.contains("showInput")){
+	    searchBox.classList.replace("bx-search" ,"bx-x");
+	  }else {
+	    searchBox.classList.replace("bx-x" ,"bx-search");
+	  }
+	});
+
+	// sidebar open close js code
+	let navLinks = document.querySelector(".nav-links");
+	let menuOpenBtn = document.querySelector(".navbar .bx-menu");
+	let menuCloseBtn = document.querySelector(".nav-links .bx-x");
+	menuOpenBtn.onclick = function() {
+	navLinks.style.left = "0";
+	}
+	menuCloseBtn.onclick = function() {
+	navLinks.style.left = "-100%";
+	}
+
+
+	// sidebar submenu open close js code
+	let htmlcssArrow = document.querySelector(".htmlcss-arrow");
+	htmlcssArrow.onclick = function() {
+	 navLinks.classList.toggle("show1");
+	}
+	let moreArrow = document.querySelector(".more-arrow");
+	moreArrow.onclick = function() {
+	 navLinks.classList.toggle("show2");
+	}
+	let jsArrow = document.querySelector(".js-arrow");
+	jsArrow.onclick = function() {
+	 navLinks.classList.toggle("show3");
+	}
+</script>
+	</head>
+	<body>
+
+<nav>
+  <div class="navbar">
+    <i class='bx bx-menu'></i>
+    <div class="logo"><a href="home.xhtml">MSM</a></div>
+    <div class="nav-links">
+      <div class="sidebar-logo">
+        <span class="logo-name">MSM</span>
+        <i class='bx bx-x' ></i>
+      </div>
+      <ul class="links">
+      <li><a href="open.xhtml">HOME</a></li><br></br>
+        <li>
+          <a href="events.html">EVENTS</a></li>
+        <li><a href="courses.html">COURSES</a></li>
+        <li><a href="clubs.html">CLUBS</a></li>
+        <li><a href="profile.xhtml">PROFILE</a></li>
+        <li><a href="index.html">LOGOUT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!--  <header>
+	<section class="home">
+	<img alt="" src="./images/Screenshot 2023-07-03 165239.png " class="img"></img>
+       
+    <div class="text"><h1>Students</h1></div>
+    </section>
+    </header>
+    
+    <div style="height: 1000px"> -->
+        <!-- just to make scrolling effect possible -->
+			<!-- <h2 class="myH2">Academics</h2>
+			<h3 class="myH3" href="#">Academia-Student portal</h3>
+			<p class="myP">This is a responsive fixed navbar animated on scroll</p>
+			<p class="myP">I took inspiration from  ABDO STEIF (<a href="https://codepen.io/abdosteif/pen/bRoyMb?editors=1100">https://codepen.io/abdosteif/pen/bRoyMb?editors=1100</a>)
+			and Dicson <a href="https://codepen.io/dicson/pen/waKPgQ">(https://codepen.io/dicson/pen/waKPgQ)</a></p>
+			<p class="myP">I HOPE YOU FIND THIS USEFULL</p>
+			<p class="myP">Albi</p>
+				<p class="myP">
+				
+				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum ratione facere animi impedit rem labore sint repellendus ipsa sapiente voluptatem aut excepturi quo itaque, ab earum cumque. Voluptatem beatae id inventore quod voluptate qui deserunt, quis placeat, tempora ex totam, dolore sequi harum eos voluptatibus animi labore officiis minus laboriosam
+				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum ratione facere animi impedit rem labore sint repellendus ipsa sapiente voluptatem aut excepturi quo itaque, ab earum cumque. Voluptatem beatae id inventore quod voluptate qui deserunt, quis placeat, tempora ex totam, dolore sequi harum eos voluptatibus animi labore officiis minus laboriosam
+				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum ratione facere animi impedit rem labore sint repellendus ipsa sapiente voluptatem aut excepturi quo itaque, ab earum cumque. Voluptatem beatae id inventore quod voluptate qui deserunt, quis placeat, tempora ex totam, dolore sequi harum eos voluptatibus animi labore officiis minus laboriosam
+				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum ratione facere animi impedit rem labore sint repellendus ipsa sapiente voluptatem aut excepturi quo itaque, ab earum cumque. Voluptatem beatae id inventore quod voluptate qui deserunt, quis placeat, tempora ex totam, dolore sequi harum eos voluptatibus animi labore officiis minus laboriosam
+				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum ratione facere animi impedit rem labore sint repellendus ipsa sapiente voluptatem aut excepturi quo itaque, ab earum cumque. Voluptatem beatae id inventore quod voluptate qui deserunt, quis placeat, tempora ex totam, dolore sequi harum eos voluptatibus animi labore officiis minus laboriosam
+			</p>
+    </div>-->
+	
+	
+	
+	<section>
+  <img src="https://www.ualberta.ca/media-library/campus-life/health-wellness-services/health-and-wellness-services-16x9.jpg" alt="Secratary image" height="100%" width="100%"></img>
+  <h2>Message from Secratary</h2>
+  <p>It gives me immense pleasure to welcome you to the Web Portal of M.S.M and to extend best wishes for an enviable success in all your academic endeavours. </p>
+</section>
+<article>
+  <figure></figure>
+  <div class="cards-holder">
+    <div class="card">
+      <div class="scrollable">
+        <br></br>
+        <h3>Mission</h3>
+        <p>MSM College of Engineering and Technology mission is to deliver the highest quality engineering graduates, provide innovative educational environments, opportunities, and experiences that enable them to emerge as leaders who in turn will benefit the society both locally and globally.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="scrollable">
+        <img src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="Vision icon" height="60px"></img>
+        <h3>Vision</h3>
+        <p>MSM College of Engineering and Technology aims to be a center of Excellence for imparting Technical Education and serving the society with self-motivated and highly competent technocrats.</p>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</article>
+<div class="section-group">
+  <section>
+    <h2>Notice Board</h2>
+    <ul>
+      <li><a href="#">Admission Notice 2018-19(Third Counselling)</a></li>
+      <li><a href="#">PWD Admission 2018-19 Application Form</a></li>
+      <li><a href="#">College Prospectus 2017 18</a></li>
+      <li><a href="#">Admission Notice For Vacant Seats For Part Time Diploma Courses For Session 2017-18</a></li>
+      <li><a href="#">Vacancy For Guest Lecturer</a></li>
+      <li><a href="#">Schedule for walk-in- interview on 24.08.2017</a></li>
+      <li><a href="#">Revised Schedule For Walk-In-Interview For Guest Faculty</a></li>
+    </ul>
+  </section>
+  <section>
+    <h2>Student Section</h2>
+    <ul>
+      <li><a href="#">Fee Payment for July-December 2018 semester Using AXIS BANK External Online Resource</a></li>
+    </ul>
+  </section>
+  <section>
+    <h2>Tender</h2>
+    <ul>
+      <li><a href="#">Dispose of Waste Newspaper</a></li>
+      <li><a href="#">Auction notice</a></li>
+      <li><a href="#">Corrigendum for Dispose of newspaper waste</a></li>
+      <li><a href="#">Corrigendum for Auction notice</a></li>
+    </ul>
+  </section>
+</div>
+<footer>
+  <ul>
+    <li>Copyright © MSM College of Engineering and Technology (Diploma), Hyderabad</li>
+    <li>Designed by students of CCET (Diploma)</li>
+  </ul>
+</footer>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</body>
+	
+</html>

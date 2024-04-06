@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+      
+      <head>
+    <style> 
+      * {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Verdana', sans-serif;
+}
+
+.mynavbar {
+	overflow: hidden;
+	width: 100%;
+	background-color: transparent;
+	color: #ecf0f1;
+	padding: 0 40px;
+}
+
+.mynavbar-left {
+	overflow: hidden;
+	float: left;
+}
+
+.mynavbar-right {
+	overflow: hidden;
+	float: right;
+	
+}
+
+.mynavbar-right ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	font-size:1.3rem;
+}
+
+.mynavbar-right ul li {
+	float: left;
+}
+
+.mynavbar-right ul li a {
+	display: inline-block;
+	padding: 35px 30px;
+	color: inherit;
+	background-color: transparent;
+	text-decoration: none;
+	-webkit-transition: .3s;
+	-moz-transition: .3s;
+	transition: .3s;
+}
+
+.mynavbar-right ul li a:hover {
+	color: #8aacbd;
+}
+
+/* menu dropdown akan muncul setelah di hover */
+.mynavbar-right ul li:hover ul {
+	display: block;
+}
+
+/* css untuk dropdown */
+.mynavbar-right ul li ul {
+	position: absolute;
+	background: black;
+	border-top: 1px solid #2c3e50;
+	display: none;
+}
+
+.mynavbar-right ul li ul li {
+	float: none;
+}
+
+.mynavbar-right ul li ul li a {
+	padding: 20px;
+}
+      </style> 
+      </head>
+      <body>
+      
+<!-- partial:index.partial.html -->
+
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8"></meta>
+	<title>Navbar with dropdown</title>
+	<link rel="stylesheet" href="style.css" type="text/css"/>
+</head>
+<body>
+	
+<div class="mynavbar">
+	<div class="mynavbar-left">
+		<h1>MyNavbar</h1>
+	</div>
+	<div class="mynavbar-right">
+		<ul>
+			<li><a href="#">Student</a>
+			<ul>
+					<li><a href="login.xhtml">Student Login</a></li>
+					<li><a href="#">Payments</a></li>
+					<li><a href="#">Academic Calendar</a></li>
+				</ul>
+			
+			</li>
+			<li><a href="#">Facluty/Staff</a></li>
+			<li><a href="#">Visitors</a></li>
+
+		</ul>
+	</div>
+</div>
+	
+</body>
+</html>
+<!-- partial -->
+      
+      </body>
+</html>

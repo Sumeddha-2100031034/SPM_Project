@@ -1,0 +1,509 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+      
+      <head>
+      
+      <style>
+      
+      *{ 
+ 
+  margin: 0; 
+  padding: 0; 
+  -webkit-box-sizing: border-box; 
+          box-sizing: border-box; 
+} 
+body{
+background-image: url('https://static.vecteezy.com/system/resources/previews/001/984/880/original/abstract-colorful-geometric-overlapping-background-and-texture-free-vector.jpg');
+  background-repeat: no-repeat;
+
+}
+ 
+h1{ 
+  font-size: 2.5rem; 
+  font-family: 'Montserrat'; 
+  font-weight: normal; 
+  color: #444; 
+  text-align: center; 
+  margin: 3rem 0; 
+} 
+ 
+.wrapper{ 
+  width: 90%; 
+  margin: 0 auto; 
+  margin-top:-80px;
+  max-width: 80rem; 
+} 
+ 
+.cols{ 
+  display: -webkit-box; 
+  display: -ms-flexbox; 
+  display: flex; 
+  -ms-flex-wrap: wrap; 
+      flex-wrap: wrap; 
+  -webkit-box-pack: center; 
+      -ms-flex-pack: center; 
+          justify-content: center; 
+} 
+ 
+.col{ 
+  width: calc(25% - 2rem); 
+  margin: 1rem; 
+  cursor: pointer; 
+} 
+ 
+.container{ 
+  -webkit-transform-style: preserve-3d; 
+          transform-style: preserve-3d; 
+ -webkit-perspective: 1000px; 
+         perspective: 1000px; 
+} 
+ 
+.front, 
+.back{ 
+  background-size: cover; 
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.25); 
+  border-radius: 10px; 
+ background-position: center; 
+ -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1); 
+ transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1); 
+ -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1); 
+ transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1); 
+ transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1); 
+ -webkit-backface-visibility: hidden; 
+         backface-visibility: hidden; 
+ text-align: center; 
+ min-height: 280px; 
+ height: auto; 
+ border-radius: 10px; 
+ color: #fff; 
+ font-size: 1.5rem; 
+} 
+ 
+.back{ 
+  background: #cedce7; 
+  background: -webkit-linear-gradient(45deg,  #cedce7 0%,#596a72 100%); 
+  background: -o-linear-gradient(45deg,  #cedce7 0%,#596a72 100%); 
+  background: linear-gradient(45deg,  #cedce7 0%,#596a72 100%); 
+} 
+ 
+.front:after{ 
+ position: absolute; 
+    top: 0; 
+    left: 0; 
+    z-index: 1; 
+    width: 100%; 
+    height: 100%; 
+    content: ''; 
+    display: block; 
+    opacity: .6; 
+    background-color: #000; 
+    -webkit-backface-visibility: hidden; 
+            backface-visibility: hidden; 
+    border-radius: 10px; 
+} 
+.container:hover .front, 
+.container:hover .back{ 
+    -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1); 
+    transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1); 
+    -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1); 
+    transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1); 
+    transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1); 
+} 
+ 
+.back{ 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+} 
+ 
+.inner{ 
+    -webkit-transform: translateY(-50%) translateZ(60px) scale(0.94); 
+            transform: translateY(-50%) translateZ(60px) scale(0.94); 
+    top: 50%; 
+    position: absolute; 
+    left: 0; 
+    width: 100%; 
+    padding: 2rem; 
+    -webkit-box-sizing: border-box; 
+            box-sizing: border-box; 
+    outline: 1px solid transparent; 
+    -webkit-perspective: inherit; 
+            perspective: inherit; 
+    z-index: 2; 
+} 
+ 
+.container .back{ 
+    -webkit-transform: rotateY(180deg); 
+            transform: rotateY(180deg); 
+    -webkit-transform-style: preserve-3d; 
+            transform-style: preserve-3d; 
+} 
+ 
+.container .front{ 
+    -webkit-transform: rotateY(0deg); 
+            transform: rotateY(0deg); 
+    -webkit-transform-style: preserve-3d; 
+            transform-style: preserve-3d; 
+} 
+ 
+.container:hover .back{ 
+  -webkit-transform: rotateY(0deg); 
+          transform: rotateY(0deg); 
+  -webkit-transform-style: preserve-3d; 
+          transform-style: preserve-3d; 
+} 
+ 
+.container:hover .front{
+-webkit-transform: rotateY(-180deg); 
+          transform: rotateY(-180deg); 
+  -webkit-transform-style: preserve-3d; 
+          transform-style: preserve-3d; 
+} 
+ 
+.front .inner p{ 
+  font-size: 2rem; 
+  margin-bottom: 2rem; 
+  position: relative; 
+} 
+ 
+.front .inner p:after{ 
+  content: ''; 
+  width: 4rem; 
+  height: 2px; 
+  position: absolute; 
+  background: #C6D4DF; 
+  display: block; 
+  left: 0; 
+  right: 0; 
+  margin: 0 auto; 
+  bottom: -.75rem; 
+} 
+ 
+.front .inner span{ 
+  color: rgba(255,255,255,0.7); 
+  font-family: 'Montserrat'; 
+  font-weight: 300; 
+} 
+ 
+@media screen and (max-width: 64rem){ 
+  .col{ 
+    width: calc(33.333333% - 2rem); 
+  } 
+} 
+ 
+@media screen and (max-width: 48rem){ 
+  .col{ 
+    width: calc(50% - 2rem); 
+  } 
+} 
+ 
+@media screen and (max-width: 32rem){ 
+  .col{ 
+    width: 100%; 
+    margin: 0 0 2rem 0; 
+  } 
+} 
+ 
+ 
+ * { 
+ box-sizing: border-box; 
+} 
+ 
+body { 
+ margin: 0; 
+ padding: 0; 
+ font-family: 'Verdana', sans-serif; 
+} 
+ 
+.mynavbar { 
+ overflow: hidden; 
+ width: 100%; 
+ background-color: transparent; 
+ color: #ecf0f1; 
+ padding: 0 30px; 
+} 
+ 
+.mynavbar-left { 
+ overflow: hidden; 
+ float: left; 
+} 
+ 
+.mynavbar-right { 
+ overflow: hidden; 
+ float: right; 
+  
+} 
+ 
+.mynavbar-right ul { 
+ padding: 0; 
+ margin: 0; 
+ list-style-type: none; 
+ font-size:1.3rem; 
+} 
+ 
+.mynavbar-right ul li { 
+ float: left; 
+} 
+ 
+.mynavbar-right ul li a { 
+ display: inline-block; 
+ padding: 35px 30px; 
+ color: black; 
+ background-color: transparent; 
+ text-decoration: none; 
+ -webkit-transition: .3s; 
+ -moz-transition: .3s; 
+ transition: .3s; 
+} 
+ 
+.mynavbar-right ul li a:hover { 
+ color: #8aacbd; 
+} 
+ 
+/* menu dropdown akan muncul setelah di hover */ 
+.mynavbar-right ul li:hover ul { 
+ display: block; 
+} 
+ 
+/* css untuk dropdown */ 
+.mynavbar-right ul li ul { 
+ position: absolute; 
+ background: transparent; 
+ border-top: 1px solid #2c3e50; 
+ display: none; 
+} 
+ 
+.mynavbar-right ul li ul li { 
+ float: none; 
+} 
+ 
+.mynavbar-right ul li ul li a { 
+ padding: 20px; 
+} 
+
+.home_link{
+text-decoration: none;
+color:white;
+}
+
+.dep_links{
+ color: white;
+ text-decoration: none;
+}
+  
+  .kno_butn{
+  padding: 3px;
+  background: transparent;
+  }    
+      </style>
+      </head>
+      
+      <body>
+      
+      <!-- partial:index.partial.html --> 
+ 
+ 
+<html lang="en"> 
+<head> 
+ <meta charset="UTF-8"></meta> 
+ <title>Navbar with dropdown</title> 
+</head> 
+<body> 
+  
+<div class="mynavbar"> 
+ <div class="mynavbar-left"> 
+  <a href="home.xhtml" class="home_link"><h1>MSM</h1></a>
+ </div> 
+ <div class="mynavbar-right"> 
+  <ul> 
+   <li><a href="#">Student</a> 
+   <ul> 
+     <li><a href="login.xhtml">Student Login</a></li> 
+      
+     <li><a href="branches.xhtml">Academics</a></li> 
+    </ul> 
+    
+   </li>  
+   <li><a href="visitors.xhtml">Visitors</a></li> 
+ 
+  </ul> 
+ </div> 
+</div> 
+  
+</body> 
+</html> 
+<!-- partial --> 
+ 
+ 
+ 
+ 
+<!-- partial:index.partial.html --> 
+<div class="wrapper"> 
+  <h1>DEPARTMENTS</h1> 
+  <div class="cols"> 
+   <div class="col" ontouchstart="this.classList.toggle('hover');"> 
+    <div class="container"> 
+     <div class="front" style="background-image: url(https://images.shiksha.com/mediadata/images/articles/1663852650phpVo3EBV.jpeg)"> 
+      <div class="inner"> 
+      <p>Engineering</p>
+              
+      </div> 
+     </div> 
+     <div class="back"> 
+      <div class="inner"> 
+        <p>The Department of Engineering in a university offers comprehensive programs.</p> 
+        <br></br>
+        <form action="https://en.wikipedia.org/wiki/Engineering">
+        <button class="kno_butn">Know More..</button>
+        </form>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="col" ontouchstart="this.classList.toggle('hover');"> 
+    <div class="container"> 
+     <div class="front" style="background-image:url(https://bce.iafor.org/wp-content/uploads/sites/52/2020/07/The-Relevance-of-the-Humanities-and-Arts-in-Uncertain-Times.jpg)"> 
+      <div class="inner"> 
+       <p>Arts and Humanities</p> 
+              
+      </div> 
+     </div> 
+     <div class="back"> 
+      <div class="inner"> 
+       <p>It is a vibrant and intellectually stimulating academic division. </p> 
+       <br></br>
+        <form action="https://en.wikipedia.org/wiki/Humanities">
+        <button class="kno_butn">Know More..</button>
+        </form>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="col" ontouchstart="this.classList.toggle('hover');"> 
+    <div class="container"> 
+     <div class="front" style="background-image: url(https://www.ckthakurcollege.net/maindesign/images/department-tab-images/department-icons/Biotechnology.webp)"> 
+      <div class="inner"> 
+       <p>Science</p> 
+               
+      </div> 
+     </div> 
+     <div class="back"> 
+      <div class="inner"> 
+       <p> It is dedicated to exploring the fundamental principles of the natural world.</p> 
+       <br></br>
+        <form action="https://en.wikipedia.org/wiki/Department_of_Science_and_Technology_(India)">
+        <button class="kno_butn">Know More..</button>
+        </form>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="col" ontouchstart="this.classList.toggle('hover');"> 
+    <div class="container"> 
+     <div class="front" style="background-image: url(https://media.springernature.com/w580h326/nature-cms/uploads/collections/CompSocSci_collections1200x675px-d0590fdac9619b8bbc539255aef86b55.jpg)"> 
+      <div class="inner"> 
+       <p>Social Sciences</p> 
+              
+      </div> 
+     </div> 
+     <div class="back"> 
+      <div class="inner"> 
+       <p>It focuses on the study of human behavior, societies, and the intricate dynamics that shape our world.</p>
+     <br></br>
+        <form action="https://en.wikipedia.org/wiki/Social_science">
+        <button class="kno_butn">Know More..</button>
+        </form>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="col" ontouchstart="this.classList.toggle('hover');"> 
+    <div class="container"> 
+     <div class="front" style="background-image: url(https://www.technoindiauniversity.ac.in/Management/business-management/images/school-of-business-management1.jpg)"> 
+      <div class="inner"> 
+       <p>Business and Management</p> 
+              
+      </div> 
+     </div> 
+     <div class="back"> 
+      <div class="inner"> 
+      <p>It provides comprehensive programs that equip students with the knowledge and skills.</p>
+     <br></br>
+        <form action="https://en.wikipedia.org/wiki/Business_administration">
+        <button class="kno_butn">Know More..</button>
+        </form>
+     
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="col" ontouchstart="this.classList.toggle('hover');"> 
+    <div class="container"> 
+     <div class="front" style="background-image: url(https://dept.jnu.ac.bd/assets/slider/31.jpg)"> 
+      <div class="inner"> 
+       <p>Law</p> 
+            
+      </div> 
+     </div> 
+     <div class="back"> 
+      <div class="inner"> 
+     <p> It offers rigorous programs that foster a deep understanding of legal principles, theories.</p>
+     
+     <br></br>
+        <form action="https://en.wikipedia.org/wiki/Law">
+        <button class="kno_butn">Know More..</button>
+        </form>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="col" ontouchstart="this.classList.toggle('hover');"> 
+    <div class="container"> 
+     <div class="front" style="background-image: url(https://www.bu.edu/sargent/files/2018/01/1_HealthScience.jpg)"> 
+      <div class="inner"> 
+       <p>Health Sciences</p> 
+              
+      </div> 
+     </div> 
+     <div class="back"> 
+      <div class="inner"> 
+       <p>It focuses on the study of various health-related disciplines, including medicine.</p> 
+      
+      <br></br>
+        <form action="https://en.wikipedia.org/wiki/Outline_of_health_sciences">
+        <button class="kno_butn">Know More..</button>
+        </form>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="col" ontouchstart="this.classList.toggle('hover');"> 
+    <div class="container"> 
+     <div class="front" style="background-image: url(https://www.mdc.edu/media/mdc/wolfson/dept---natural-science---health-and-wellness/natural-science-health-wellness-780x344.jpg)"> 
+      <div class="inner"> 
+       <p>Natural Sciences</p> 
+             
+      </div> 
+     </div> 
+     <div class="back"> 
+      <div class="inner"> 
+    <p>It explores the wonders of the natural world.</p>
+     
+     <br></br>
+        <form action="https://en.wikipedia.org/wiki/Natural_science">
+        <button class="kno_butn">Know More..</button>
+        </form>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+ </div> 
+<!-- partial --> 
+      
+      </body>
+</html>
